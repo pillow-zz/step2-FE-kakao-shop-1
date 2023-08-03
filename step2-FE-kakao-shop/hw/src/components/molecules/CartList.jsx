@@ -11,6 +11,8 @@ import { useMutation, useQuery } from "react-query";
 import { getCart, updateCart } from "../../services/cart";
 import { useSelector } from "react-redux";
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const CartList = ({ data }) => {
   const route = useNavigate();
   const [cartItems, setCartItems] = useState([]);
@@ -124,7 +126,7 @@ const CartList = ({ data }) => {
 
           // navigate to order page
           // 주문 페이지로 이동
-          route("/order");
+          route(staticServerUri + "/order");
         }}
       >
         <span>총 {getTotalCartCountIncludeOptions()}건 주문하기</span>

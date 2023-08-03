@@ -5,6 +5,8 @@ import { setToken } from "../../store/slices/userSlice";
 import { useEffect, useState } from "react";
 import { setEmail, logOut } from "../../store/slices/userSlice";
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 function GNB() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -42,7 +44,7 @@ function GNB() {
   return (
     <header className="header">
       <div className="flex justify-between p-4">
-        <Link to="/">
+        <Link to={staticServerUri + "/"}>
           <img
             className="logoKakao"
             src={"/logoKakao.png"}
@@ -54,7 +56,7 @@ function GNB() {
           <div className="">
             <span className="">
               {/* 장바구니 버튼 */}
-              <Link to="/cart">
+              <Link to={staticServerUri + "/cart"}>
                 <img
                   className="cart"
                   src={"/cart.png"}
@@ -68,7 +70,7 @@ function GNB() {
               {/* 로그인 버튼 */}
               {isLogined ? (
                 <Link
-                  to="/"
+                  to={staticServerUri + "/"}
                   onClick={handleLogout}
                   style={{ textDecoration: "none", color: "black" }}
                 >
@@ -77,7 +79,7 @@ function GNB() {
                 </Link>
               ) : (
                 <Link
-                  to="/login"
+                  to={staticServerUri + "/login"}
                   // onClick={handleLogout}
                   style={{ textDecoration: "none", color: "black" }}
                 >

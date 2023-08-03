@@ -7,6 +7,8 @@ import { register, checkEmail } from "../../services/user";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const RegisterForm = () => {
   const navigate = useNavigate();
 
@@ -141,7 +143,7 @@ const RegisterForm = () => {
             password: value.password,
             username: value.username,
           });
-          navigate("/");
+          navigate(staticServerUri + "/");
         }}
       >
         회원가입
@@ -149,7 +151,7 @@ const RegisterForm = () => {
       <Button
         className="m-4 p-4 text-black font-bold text-xl bg-yellow-400"
         onClick={() => {
-          navigate("/login");
+          navigate(staticServerUri + "/login");
         }}
       >
         로그인

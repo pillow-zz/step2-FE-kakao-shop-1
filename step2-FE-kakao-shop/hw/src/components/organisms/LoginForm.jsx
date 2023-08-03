@@ -9,6 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginRequest, logOut } from "../../store/slices/userSlice";
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const LoginForm = () => {
   const navigate = useNavigate();
 
@@ -29,7 +31,7 @@ const LoginForm = () => {
       })
     )
       .then(() => {
-        navigate("/");
+        navigate(staticServerUri + "/");
       })
       .catch((err) => {
         console.log("err", err);
@@ -38,7 +40,7 @@ const LoginForm = () => {
 
   return (
     <Container>
-      <Link to="/">
+      <Link to={staticServerUri + "/"}>
         <Title>Main page로</Title>
       </Link>
       <Title>로그인</Title>
@@ -73,7 +75,7 @@ const LoginForm = () => {
       <Button
         className="m-4 p-4 text-black font-bold text-xl bg-yellow-400"
         onClick={() => {
-          navigate("/signup");
+          navigate(staticServerUri + "/signup");
         }}
       >
         회원가입

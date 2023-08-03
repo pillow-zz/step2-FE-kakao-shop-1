@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const OrderTemplate = ({ data }) => {
   // 사용자의 장바구니 목록을 조회해서 보여주는 것
   // 임시 배열
@@ -164,7 +166,7 @@ const OrderTemplate = ({ data }) => {
               // 로그인 시간이 끝났을 경우
               if (isLogined === false) {
                 alert("로그인이 만료되었습니다. 로그인페이지로 이동합니다.");
-                navigate("/login");
+                navigate(staticServerUri + "/login");
               }
 
               // POST: /orders/save
@@ -182,7 +184,7 @@ const OrderTemplate = ({ data }) => {
                   onSuccess: (res) => {
                     const id = res.data.response.id;
                     alert("주문이 완료되었습니다.");
-                    navigate(`/orders/complete/${id}`);
+                    navigate(staticServerUri + `/orders/complete/${id}`);
                   },
                 }
               );
