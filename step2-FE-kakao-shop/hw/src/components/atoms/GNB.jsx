@@ -47,7 +47,7 @@ function GNB() {
         <Link to={staticServerUri + "/"}>
           <img
             className="logoKakao"
-            src={"/logoKakao.png"}
+            src={staticServerUri + "/logoKakao.png"}
             alt="logoKakao.png"
             height={30}
           />
@@ -59,7 +59,7 @@ function GNB() {
               <Link to={staticServerUri + "/cart"}>
                 <img
                   className="cart"
-                  src={"/cart.png"}
+                  src={staticServerUri + "/cart.png"}
                   alt="cart.png"
                   height={30}
                 />
