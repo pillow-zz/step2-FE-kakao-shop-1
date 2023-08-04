@@ -2,16 +2,15 @@ import "../../styles/molecules/ProductInformationColumn.css";
 import { comma } from "../../utils/convert";
 import Photo from "../atoms/Photo";
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const ProductInformationColumn = ({ product }) => {
   const { productName, price, image } = product;
   return (
     <div className="product-information-column">
       <div className="w-full max-w-[300px]">
         <Photo
-          src={
-            "http://kakao-app-env.eba-kfsgeb74.ap-northeast-2.elasticbeanstalk.com" +
-            image
-          }
+          src={staticServerUri + `/images/${product.id}.jpg`}
           alt={productName}
         />
       </div>
