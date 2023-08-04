@@ -2,10 +2,12 @@ import MainProductTemplate from "../components/oTemplates/MainProductTemplate";
 import Carousel from "../components/atoms/Carousel";
 import { useState, useEffect } from "react";
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const slides = [
-  "/carouselItem1.jpeg",
-  "/carouselItem2.jpeg",
-  "/carouselItem3.jpeg",
+  staticServerUri + "/carouselItem1.jpeg",
+  staticServerUri + "/carouselItem2.jpeg",
+  staticServerUri + "/carouselItem3.jpeg",
 ];
 
 const HomePage = () => {
