@@ -2,15 +2,14 @@ import { comma } from "../../utils/convert";
 import Card from "../atoms/Card";
 import Photo from "../atoms/Photo";
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 const ProductCard = ({ product }) => {
   return (
     <Card to={`/product/${product.id}`}>
       <Photo
         className="card"
-        src={
-          "http://kakao-app-env.eba-kfsgeb74.ap-northeast-2.elasticbeanstalk.com" +
-          product.image
-        }
+        src={staticServerUri + `/images/${product.id}.jpg`}
         alt={product.productName}
       />
       <div className="flex flex-col gap-2 mb-4">

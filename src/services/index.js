@@ -1,9 +1,11 @@
 import axios from "axios";
 
+const staticServerUri = process.env.REACT_APP_PATH || "";
+
 export const instance = axios.create({
   // 여기에 직접 스트링으로 넣으면 안됨 근데 안됨
   baseURL:
-    "http://kakao-app-env.eba-kfsgeb74.ap-northeast-2.elasticbeanstalk.com",
+    staticServerUri + "/api",
   timeout: 1000,
   headers: {
     "Content-Type": "application/json",
